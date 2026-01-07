@@ -1,0 +1,129 @@
+import { motion } from "framer-motion";
+import { Leaf, Sun, Package, Users } from "lucide-react";
+
+const features = [
+  {
+    icon: Leaf,
+    title: "Farm Fresh",
+    description: "Picked at peak ripeness directly from our family-owned orchards, ensuring maximum freshness.",
+  },
+  {
+    icon: Sun,
+    title: "Naturally Ripened",
+    description: "No artificial ripening agents. Our mangoes ripen naturally under the sun for authentic taste.",
+  },
+  {
+    icon: Package,
+    title: "Hygienic Packaging",
+    description: "Each mango is carefully wrapped and packed to ensure it reaches you in perfect condition.",
+  },
+  {
+    icon: Users,
+    title: "Direct from Farmers",
+    description: "No middlemen. You buy directly from our farm, getting the best quality at fair prices.",
+  },
+];
+
+const WhyChooseSection = () => {
+  return (
+    <section id="why-us" className="section-padding bg-background">
+      <div className="container-custom mx-auto">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.span
+            className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            Why Madhuvan
+          </motion.span>
+          <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-6">
+            Why Choose{" "}
+            <span className="text-gradient-leaf">Our Mangoes</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Three generations of expertise, traditional farming methods, 
+            and a commitment to quality that you can taste in every bite.
+          </p>
+        </motion.div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              className="relative group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <div className="bg-card rounded-2xl p-8 text-center h-full border border-border/50 shadow-soft transition-all duration-300 group-hover:shadow-card group-hover:-translate-y-2">
+                {/* Icon */}
+                <motion.div
+                  className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-leaf flex items-center justify-center shadow-green"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                >
+                  <feature.icon className="w-8 h-8 text-secondary-foreground" />
+                </motion.div>
+
+                {/* Content */}
+                <h3 className="text-xl font-heading font-bold text-foreground mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+
+              {/* Decorative element */}
+              <div className="absolute -z-10 top-4 left-4 right-4 bottom-4 rounded-2xl bg-primary/10 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2" />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Stats Row */}
+        <motion.div
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border/50"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {[
+            { value: "25+", label: "Years of Experience" },
+            { value: "10K+", label: "Happy Customers" },
+            { value: "50+", label: "Acres of Orchards" },
+            { value: "4", label: "Premium Varieties" },
+          ].map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+            >
+              <div className="text-3xl md:text-4xl font-heading font-bold text-gradient-mango mb-2">
+                {stat.value}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default WhyChooseSection;

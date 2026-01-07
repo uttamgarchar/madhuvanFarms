@@ -1,0 +1,177 @@
+import { motion } from "framer-motion";
+import { Star, Leaf, Award, MessageCircle } from "lucide-react";
+import mangoKesar from "@/assets/mango-kesar.png";
+
+const MangoVarietiesSection = () => {
+  const whatsappUrl = "https://wa.me/919725131748?text=Hi%2C%20I%20want%20to%20order%20Kesar%20Mango%20%E2%80%93%201%20dozen.";
+
+  return (
+    <section id="varieties" className="section-padding bg-gradient-warm watercolor-texture">
+      <div className="container-custom mx-auto">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.span
+            className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            Our Signature Variety
+          </motion.span>
+          <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-6">
+            Premium{" "}
+            <span className="text-gradient-mango">Kesar Mango</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Experience the legendary "Queen of Mangoes" — hand-picked from our orchards 
+            and delivered fresh to your doorstep.
+          </p>
+        </motion.div>
+
+        {/* Featured Mango Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="bg-card rounded-[2rem] shadow-card overflow-hidden border border-border/50">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Image Section */}
+              <motion.div 
+                className="relative bg-gradient-to-br from-mango-cream via-mango-yellow/20 to-mango-cream p-8 md:p-12 flex items-center justify-center min-h-[300px] md:min-h-[450px]"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {/* Decorative circles */}
+                <div className="absolute top-8 left-8 w-20 h-20 bg-mango-yellow/20 rounded-full blur-xl" />
+                <div className="absolute bottom-12 right-12 w-32 h-32 bg-mango-green/10 rounded-full blur-2xl" />
+                
+                {/* Season Badge */}
+                <div className="absolute top-6 right-6 bg-secondary text-secondary-foreground text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+                  🗓️ May - July
+                </div>
+
+                {/* Queen Badge */}
+                <motion.div 
+                  className="absolute top-6 left-6 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Award className="w-3.5 h-3.5" />
+                  Queen of Mangoes
+                </motion.div>
+
+                <motion.img
+                  src={mangoKesar}
+                  alt="Premium Kesar Mango"
+                  className="w-full max-w-[280px] md:max-w-[340px] h-auto object-contain drop-shadow-2xl relative z-10"
+                  animate={{ 
+                    y: [0, -10, 0],
+                    rotate: [0, 2, -2, 0]
+                  }}
+                  transition={{ 
+                    duration: 5, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                />
+              </motion.div>
+
+              {/* Content Section */}
+              <div className="p-8 md:p-12 flex flex-col justify-center">
+                <div className="flex items-center gap-2 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  ))}
+                  <span className="text-muted-foreground text-sm ml-2">Premium Quality</span>
+                </div>
+
+                <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+                  Kesar Mango
+                </h3>
+
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  Known as the "Queen of Mangoes", featuring saffron-colored flesh with 
+                  a unique sweet-tangy taste and aromatic fragrance. Naturally ripened 
+                  with no chemicals — pure, authentic, and delicious.
+                </p>
+
+                {/* Features */}
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <div className="w-10 h-10 rounded-full bg-mango-green/10 flex items-center justify-center">
+                      <Leaf className="w-5 h-5 text-mango-green" />
+                    </div>
+                    <span>100% Organic</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <div className="w-10 h-10 rounded-full bg-mango-yellow/20 flex items-center justify-center">
+                      <span className="text-lg">🌿</span>
+                    </div>
+                    <span>Naturally Ripened</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                      <span className="text-lg">📦</span>
+                    </div>
+                    <span>Safe Packaging</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                      <span className="text-lg">🚚</span>
+                    </div>
+                    <span>Fast Delivery</span>
+                  </div>
+                </div>
+
+                {/* Price & CTA */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6 border-t border-border">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Price per dozen</p>
+                    <p className="text-3xl md:text-4xl font-bold text-primary">₹699</p>
+                  </div>
+                  
+                  <motion.a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-whatsapp text-base py-3 px-6 sm:ml-auto"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    Order on WhatsApp
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom Note */}
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+        >
+          <p className="text-muted-foreground text-sm">
+            🥭 Fresh from Junagadh, Gujarat — The homeland of authentic Kesar mangoes
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default MangoVarietiesSection;
