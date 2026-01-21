@@ -50,7 +50,7 @@ const WhyChooseSection = () => {
             <span className="text-gradient-leaf">Our Mangoes</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Three generations of expertise, traditional farming methods, 
+            Three generations of expertise, traditional farming methods,
             and a commitment to quality that you can taste in every bite.
           </p>
         </motion.div>
@@ -92,17 +92,20 @@ const WhyChooseSection = () => {
 
         {/* Stats Row */}
         <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border/50"
+          className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-20  bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border/50"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           {[
-            { value: "25+", label: "Years of Experience" },
-            { value: "10K+", label: "Happy Customers" },
-            { value: "50+", label: "Acres of Orchards" },
-            { value: "4", label: "Premium Varieties" },
+            { value: "40+", label: "Years of Experience" },
+            { value: "5K+", label: "Happy Customers" },
+            { value: "25+", label: "Acres of Orchards" },
+            { value: "4+", label: "Premium Varieties" },
+            { value: "5 lakh+", label: "mango sold" },
+            { value: "50k+", label: "box delivered" },
+
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
