@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Leaf, Sun, Package, Users } from "lucide-react";
 
@@ -5,29 +6,44 @@ const features = [
   {
     icon: Leaf,
     title: "Farm Fresh",
-    description: "Picked at peak ripeness directly from our family-owned orchards, ensuring maximum freshness.",
+    description:
+      "Picked at peak ripeness directly from our family-owned orchards, ensuring maximum freshness.",
   },
   {
     icon: Sun,
     title: "Naturally Ripened",
-    description: "No artificial ripening agents. Our mangoes ripen naturally under the sun for authentic taste.",
+    description:
+      "No artificial ripening agents. Our mangoes ripen naturally under the sun for authentic taste.",
   },
   {
     icon: Package,
     title: "Hygienic Packaging",
-    description: "Each mango is carefully wrapped and packed to ensure it reaches you in perfect condition.",
+    description:
+      "Each mango is carefully wrapped and packed to ensure it reaches you in perfect condition.",
   },
   {
     icon: Users,
     title: "Direct from Farmers",
-    description: "No middlemen. You buy directly from our farm, getting the best quality at fair prices.",
+    description:
+      "No middlemen. You buy directly from our farm, getting the best quality at fair prices.",
   },
 ];
 
 const WhyChooseSection = () => {
+  // Load Elfsight script once
+  useEffect(() => {
+    if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://elfsightcdn.com/platform.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <section id="why-us" className="section-padding bg-background">
       <div className="container-custom mx-auto">
+
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -36,19 +52,14 @@ const WhyChooseSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.span
-            className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
             Why Madhuvan
-          </motion.span>
+          </span>
+
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-6">
-            Why Choose{" "}
-            <span className="text-gradient-leaf">Our Mangoes</span>
+            Why Choose <span className="text-gradient-leaf">Our Mangoes</span>
           </h2>
+
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Three generations of expertise, traditional farming methods,
             and a commitment to quality that you can taste in every bite.
@@ -67,32 +78,27 @@ const WhyChooseSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <div className="bg-card rounded-2xl p-8 text-center h-full border border-border/50 shadow-soft transition-all duration-300 group-hover:shadow-card group-hover:-translate-y-2">
-                {/* Icon */}
-                <motion.div
-                  className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-leaf flex items-center justify-center shadow-green"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
+                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-leaf flex items-center justify-center shadow-green">
                   <feature.icon className="w-8 h-8 text-secondary-foreground" />
-                </motion.div>
+                </div>
 
-                {/* Content */}
                 <h3 className="text-xl font-heading font-bold text-foreground mb-3">
                   {feature.title}
                 </h3>
+
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>
 
-              {/* Decorative element */}
               <div className="absolute -z-10 top-4 left-4 right-4 bottom-4 rounded-2xl bg-primary/10 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2" />
             </motion.div>
           ))}
         </div>
 
-        {/* Stats Row */}
+        {/* Stats Section */}
         <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-20  bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border/50"
+          className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-20 bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border/50"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -103,9 +109,8 @@ const WhyChooseSection = () => {
             { value: "5K+", label: "Happy Customers" },
             { value: "25+", label: "Acres of Orchards" },
             { value: "4+", label: "Premium Varieties" },
-            { value: "5 lakh+", label: "mango sold" },
-            { value: "50k+", label: "box delivered" },
-
+            { value: "5 Lakh+", label: "Mangoes Sold" },
+            { value: "50K+", label: "Boxes Delivered" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -124,6 +129,23 @@ const WhyChooseSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Google Reviews Section */}
+        <motion.div
+          className="mt-20 bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border/50"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+
+
+          <div
+            className="elfsight-app-aa6cbd54-4e1d-4b74-a34c-6576910a5994"
+            data-elfsight-app-lazy
+          />
+        </motion.div>
+
       </div>
     </section>
   );

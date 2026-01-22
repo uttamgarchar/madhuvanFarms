@@ -142,10 +142,22 @@ const Footer = () => {
                 </div>
               </div>
             </motion.div>
+
           </div>
         </div>
       </div>
 
+      <div className="flex justify-center items-center">
+        <ul className="space-y-4">
+          <li className="flex items-start gap-3">
+            <MapPin className=" w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="ml-1 text-cream text-sm font-medium">Location</p>
+              <iframe className="h-40  mt-10" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8209760452705!2d70.70438237922706!3d21.039848030622252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be2c7a6290cabe5%3A0x7b53405ebd5dd54!2sMadhuvan%20mango%20farm!5e0!3m2!1sen!2sin!4v1769059018485!5m2!1sen!2sin" width="600" height="450" loading="lazy" ></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
       {/* Bottom Bar */}
       <div className="border-t border-cream-dark/10">
         <div className="container-custom mx-auto px-4 py-6">
